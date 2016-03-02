@@ -1,0 +1,30 @@
+{
+    "name": "pdt256/article",
+    "description": "Articles for Clean Code",
+    "license": "MIT",
+    "keywords": ["article", "php", "clean code"],
+    "authors": [
+        {
+            "name": "Jamie Isaacs",
+            "email": "pdt256@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "5.0.8",
+        "mockery/mockery": "0.9.*",
+        "squizlabs/php_codesniffer": "2.3.0"
+    },
+    "require": {
+        "php": ">=5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "pdt256\\article\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "pdt256\\article\\tests\\": "tests"
+        }
+    }
+}
