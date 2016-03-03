@@ -23,18 +23,13 @@ class CustomHydratorCompanyRepository extends EntityRepository implements Compan
             ->setParameter('companyId', $companyId)
             ->setMaxResults(1)
             ->getQuery()
-            ->getResult('CompanyStatsDTOHydrator');
+            ->getResult(CompanyStatsDTOHydrator::class);
     }
 
-    /**
-     * @param string $className Fully qualified class name
-     */
     protected function addCustomHydrationMode(string $className)
     {
-        $modeName = (new \ReflectionClass($className))->getShortName();
-
         $this->getEntityManager()->getConfiguration()->addCustomHydrationMode(
-            $modeName,
+            $className,
             $className
         );
     }
