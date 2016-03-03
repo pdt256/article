@@ -9,7 +9,7 @@ final class DTOHydratorCompanyRepository extends EntityRepository implements Com
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {
-        $companyStatsList =  $this->getEntityManager()
+        return $this->getEntityManager()
             ->createQueryBuilder()
             ->select('NEW ' . CompanyStatsDTO::class . '(
                 SUM(IF(Employee.isActive=1,1,0)),
@@ -19,8 +19,6 @@ final class DTOHydratorCompanyRepository extends EntityRepository implements Com
             ->where('Employee.company = :companyId')
             ->setParameter('companyId', $companyId)
             ->getQuery()
-            ->getResult();
-
-        return $companyStatsList[0];
+            ->getOneOrNullResult();
     }
 }
