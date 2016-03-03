@@ -3,6 +3,7 @@ namespace pdt256\article\RepositoryHydration\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
+use pdt256\article\RepositoryHydration\Entity\Employee;
 use pdt256\article\RepositoryHydration\Repository\Hydrator\CompanyStatsDTOHydrator;
 
 final class CustomHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
@@ -15,7 +16,7 @@ final class CustomHydratorCompanyRepository extends EntityRepository implements 
             ->createQueryBuilder()
             ->addSelect('SUM(IF(Employee.isActive=1,1,0)) AS totalActiveEmployees')
             ->addSelect('SUM(IF(Employee.isActive=0,1,0)) AS totalInactiveEmployees')
-            ->from('Entity:Employee', 'Employee')
+            ->from(Employee::class, 'Employee')
             ->where('Employee.company = :companyId')
             ->setParameter('companyId', $companyId)
             ->setMaxResults(1)
