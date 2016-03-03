@@ -1,5 +1,5 @@
 <?php
-namespace pdt256\article\RepositoryHydration\Repository;
+namespace pdt256\article\RepositoryHydration\Repository\Hydrator;
 
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use Doctrine\ORM\Internal\Hydration\AbstractHydrator;
