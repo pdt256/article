@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\ResultSetMapping;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 
-class ResultSetMappingCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
+final class ResultSetMappingCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {

@@ -1,7 +1,7 @@
 <?php
 namespace pdt256\article\RepositoryHydration\DTO;
 
-class CompanyStatsDTO
+final class CompanyStatsDTO
 {
     protected $totalActiveEmployees;
     protected $totalInactiveEmployees;

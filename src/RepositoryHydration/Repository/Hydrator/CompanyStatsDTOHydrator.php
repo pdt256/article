@@ -5,7 +5,7 @@ use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use Doctrine\ORM\Internal\Hydration\AbstractHydrator;
 use PDO;
 
-class CompanyStatsDTOHydrator extends AbstractHydrator
+final class CompanyStatsDTOHydrator extends AbstractHydrator
 {
     protected function hydrateAllData(): CompanyStatsDTO
     {

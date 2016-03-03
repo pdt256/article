@@ -4,7 +4,7 @@ namespace pdt256\article\RepositoryHydration\Repository;
 use Doctrine\ORM\EntityRepository;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 
-class DTOHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
+final class DTOHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {

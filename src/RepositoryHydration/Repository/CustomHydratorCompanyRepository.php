@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityRepository;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use pdt256\article\RepositoryHydration\Repository\Hydrator\CompanyStatsDTOHydrator;
 
-class CustomHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
+final class CustomHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {
