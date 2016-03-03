@@ -1,10 +1,11 @@
 <?php
-namespace pdt256\article\RepositoryHydration\DTO;
+namespace pdt256\article\RepositoryHydration\Repository;
 
+use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use Doctrine\ORM\Internal\Hydration\AbstractHydrator;
 use PDO;
 
-class CompanyStatsHydrator extends AbstractHydrator
+class CompanyStatsDTOHydrator extends AbstractHydrator
 {
     /**
      * @return CompanyStatsDTO

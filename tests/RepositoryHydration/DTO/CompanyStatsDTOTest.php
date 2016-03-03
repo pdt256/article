@@ -1,7 +1,6 @@
 <?php
-namespace Trinet\Time\Entity;
+namespace pdt256\article\RepositoryHydration\DTO;
 
-use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use pdt256\article\tests\Helper\ArticleTestCase;
 
 class CompanyStatsDTOTest extends ArticleTestCase
