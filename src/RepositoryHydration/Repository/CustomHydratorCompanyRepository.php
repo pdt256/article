@@ -6,11 +6,7 @@ use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 
 class CustomHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
 {
-    /**
-     * @param int $companyId
-     * @return CompanyStatsDTO
-     */
-    public function getCompanyStats($companyId)
+    public function getCompanyStats(int $companyId): CompanyStatsDTO
     {
         $this->addCustomHydrationMode(CompanyStatsDTOHydrator::class);
 

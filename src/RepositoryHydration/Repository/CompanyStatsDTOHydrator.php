@@ -7,10 +7,7 @@ use PDO;
 
 class CompanyStatsDTOHydrator extends AbstractHydrator
 {
-    /**
-     * @return CompanyStatsDTO
-     */
-    protected function hydrateAllData()
+    protected function hydrateAllData(): CompanyStatsDTO
     {
         $row = $this->_stmt->fetch(PDO::FETCH_ASSOC);
 

@@ -5,9 +5,5 @@ use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 
 interface CompanyRepositoryInterface
 {
-    /**
-     * @param int $companyId
-     * @return CompanyStatsDTO
-     */
-    public function getCompanyStats($companyId);
+    public function getCompanyStats(int $companyId): CompanyStatsDTO;
 }

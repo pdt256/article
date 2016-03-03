@@ -4,7 +4,6 @@ namespace pdt256\article\Common\Entity;
 trait IdTrait
 {
     /**
-     * @var int
      * @ORM\Column(type="integer", nullable=false, options={"unsigned": true})
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")

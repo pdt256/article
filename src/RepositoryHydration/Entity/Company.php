@@ -12,16 +12,10 @@ class Company
 {
     use IdTrait;
 
-    /**
-     * @var string
-     * @ORM\Column(type="string", length=100, nullable=false, options={"default": ""})
-     */
+    /** @ORM\Column(type="string", length=100, nullable=false, options={"default": ""}) */
     protected $name;
 
-    /**
-     * @var bool
-     * @ORM\Column(type="boolean", nullable=false, options={"default": 0})
-     */
+    /** @ORM\Column(type="boolean", nullable=false, options={"default": 0}) */
     protected $isActive;
 
     public function __construct()
