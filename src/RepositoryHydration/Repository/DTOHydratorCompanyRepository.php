@@ -12,11 +12,11 @@ final class DTOHydratorCompanyRepository extends EntityRepository implements Com
         return $this->getEntityManager()
             ->createQueryBuilder()
             ->select('NEW ' . CompanyStatsDTO::class . '(
-                SUM(IF(e.isActive=1,1,0)),
-                SUM(IF(e.isActive=0,1,0))
+                SUM(IF(Employee.isActive=1,1,0)),
+                SUM(IF(Employee.isActive=0,1,0))
             )')
-            ->from(Employee::class, 'e')
-            ->where('e.company = :companyId')
+            ->from(Employee::class, 'Employee')
+            ->where('Employee.company = :companyId')
             ->setParameter('companyId', $companyId)
             ->getQuery()
             ->getOneOrNullResult();
