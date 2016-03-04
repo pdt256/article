@@ -12,8 +12,8 @@ final class CompanyStatsDTOHydrator extends AbstractHydrator
         $row = $this->_stmt->fetch(PDO::FETCH_ASSOC);
 
         return new CompanyStatsDTO(
-            $row['sclr_0'],
-            $row['sclr_1']
+            (int) $row['sclr_0'],
+            (int) $row['sclr_1']
         );
     }
 }

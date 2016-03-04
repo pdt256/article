@@ -1,7 +1,7 @@
 <?php
 namespace pdt256\article\RepositoryHydration\DTO;
 
-use pdt256\article\tests\Helper\ArticleTestCase;
+use pdt256\article\tests\Helper\TestCase\ArticleTestCase;
 
 class CompanyStatsDTOTest extends ArticleTestCase
 {

@@ -1,12 +1,12 @@
 <?php
 namespace pdt256\article\RepositoryHydration\Repository;
 
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\ResultSetMapping;
+use pdt256\article\common\Repository\AbstractEntityRepository;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use pdt256\article\RepositoryHydration\Entity\Employee;
 
-final class ResultSetMappingCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
+final class ResultSetMappingCompanyRepository extends AbstractEntityRepository implements CompanyRepositoryInterface
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {

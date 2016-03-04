@@ -1,12 +1,12 @@
 <?php
 namespace pdt256\article\RepositoryHydration\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use pdt256\article\common\Repository\AbstractEntityRepository;
 use pdt256\article\RepositoryHydration\DTO\CompanyStatsDTO;
 use pdt256\article\RepositoryHydration\Entity\Employee;
 use pdt256\article\RepositoryHydration\Repository\Hydrator\CompanyStatsDTOHydrator;
 
-final class CustomHydratorCompanyRepository extends EntityRepository implements CompanyRepositoryInterface
+final class CustomHydratorCompanyRepository extends AbstractEntityRepository implements CompanyRepositoryInterface
 {
     public function getCompanyStats(int $companyId): CompanyStatsDTO
     {

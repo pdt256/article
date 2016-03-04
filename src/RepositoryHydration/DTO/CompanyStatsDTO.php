@@ -6,10 +6,10 @@ final class CompanyStatsDTO
     protected $totalActiveEmployees;
     protected $totalInactiveEmployees;
 
-    public function __construct(int $totalActiveEmployees, int $totalInactiveEmployees)
+    public function __construct(int $totalActiveEmployees = null, int $totalInactiveEmployees = null)
     {
-        $this->totalActiveEmployees = $totalActiveEmployees;
-        $this->totalInactiveEmployees = $totalInactiveEmployees;
+        $this->totalActiveEmployees = (int) $totalActiveEmployees;
+        $this->totalInactiveEmployees = (int) $totalInactiveEmployees;
     }
 
     public function totalActiveEmployees(): int

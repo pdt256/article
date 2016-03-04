@@ -10,10 +10,18 @@
          stopOnFailure="false"
          syntaxCheck="false">
     <testsuites>
-        <testsuite name="Test Suite">
-            <directory suffix=".php">./tests</directory>
+        <testsuite name="Common">
+            <directory suffix=".php">./tests/Common</directory>
+        </testsuite>
+        <testsuite name="RepositoryHydration">
+            <directory suffix=".php">./tests/RepositoryHydration</directory>
         </testsuite>
     </testsuites>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="false">
+            <directory>src</directory>
+        </whitelist>
+    </filter>
     <listeners>
         <listener class="\Mockery\Adapter\Phpunit\TestListener"
                   file="vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php">

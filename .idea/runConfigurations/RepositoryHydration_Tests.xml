@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RepositoryHydration Tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" singleton="true">
+    <TestRunner directory="All Tests" scope="XML" options="--testsuite RepositoryHydration" />
+    <method />
+  </configuration>
+</component>

@@ -1,7 +1,7 @@
 <?php
 namespace pdt256\article\RepositoryHydration\Entity;
 
-use pdt256\article\tests\Helper\EntityTestCase;
+use pdt256\article\tests\Helper\TestCase\EntityTestCase;
 
 class CompanyTest extends EntityTestCase
 {
