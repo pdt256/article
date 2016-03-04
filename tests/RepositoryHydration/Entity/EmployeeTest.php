@@ -9,6 +9,7 @@ class EmployeeTest extends EntityTestCase
     {
         $employee = new Employee;
 
+        $this->assertSame(null, $employee->getId());
         $this->assertSame(null, $employee->getName());
         $this->assertSame(false, $employee->isActive());
         $this->assertSame(null, $employee->getCompany());
