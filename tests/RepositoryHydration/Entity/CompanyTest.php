@@ -9,7 +9,6 @@ class CompanyTest extends EntityTestCase
     {
         $company = new Company;
 
-        $this->assertSame(null, $company->getId());
         $this->assertSame(null, $company->getName());
         $this->assertSame(false, $company->isActive());
     }
