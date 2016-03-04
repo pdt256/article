@@ -3,7 +3,7 @@ namespace pdt256\article\common\Repository;
 
 use Doctrine\ORM\EntityManager;
 
-class AbstractEntityRepository
+abstract class AbstractEntityRepository
 {
     /** @var EntityManager */
     private $entityManager;
