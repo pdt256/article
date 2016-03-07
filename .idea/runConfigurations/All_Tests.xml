@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="All Tests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" singleton="true">
+    <CommandLine parameters="-n -d zend_extension=&quot;/usr/local/opt/php70-opcache/opcache.so&quot;" />
+    <TestRunner directory="All Tests" scope="XML" />
+    <method />
+  </configuration>
+</component>
