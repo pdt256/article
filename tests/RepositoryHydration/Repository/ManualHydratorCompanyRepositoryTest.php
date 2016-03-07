@@ -3,9 +3,8 @@ namespace pdt256\article\RepositoryHydration\Repository;
 
 class ManualHydratorCompanyRepositoryTest extends AbstractDoctrineCompanyRepositoryTest
 {
-    public function setUp()
+    protected function getCompanyRepository(): CompanyRepositoryInterface
     {
-        parent::setUp();
-        $this->companyRepository = new ManualHydratorCompanyRepository($this->entityManager);
+        return new ManualHydratorCompanyRepository($this->entityManager);
     }
 }

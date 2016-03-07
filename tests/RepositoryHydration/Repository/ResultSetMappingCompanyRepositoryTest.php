@@ -3,9 +3,8 @@ namespace pdt256\article\RepositoryHydration\Repository;
 
 class ResultSetMappingCompanyRepositoryTest extends AbstractDoctrineCompanyRepositoryTest
 {
-    public function setUp()
+    protected function getCompanyRepository(): CompanyRepositoryInterface
     {
-        parent::setUp();
-        $this->companyRepository = new ResultSetMappingCompanyRepository($this->entityManager);
+        return new ResultSetMappingCompanyRepository($this->entityManager);
     }
 }

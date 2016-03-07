@@ -18,8 +18,10 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
     public function setUp()
     {
         parent::setUp();
-        $this->companyRepository = $this->entityManager->getRepository(Company::class);
+        $this->companyRepository = $this->getCompanyRepository();
     }
+
+    abstract protected function getCompanyRepository(): CompanyRepositoryInterface;
 
     public function testGetCompanyStats()
     {
