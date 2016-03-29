@@ -25,20 +25,9 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
 
     public function testGetCompanyStats()
     {
-        $company = $this->getDummyActiveCompany();
+        $companyId = $this->getCompanyIdForStatsTest();
 
-        $employee1 = $this->getDummyActiveEmployee($company, 1);
-        $employee2 = $this->getDummyActiveEmployee($company, 2);
-        $employee3 = $this->getDummyInactiveEmployee($company, 3);
-
-        $this->entityManager->persist($company);
-        $this->entityManager->persist($employee1);
-        $this->entityManager->persist($employee2);
-        $this->entityManager->persist($employee3);
-        $this->entityManager->flush();
-        $this->entityManager->clear();
-
-        $companyStats = $this->companyRepository->getCompanyStats($company->getId());
+        $companyStats = $this->companyRepository->getCompanyStats($companyId);
 
         $this->assertSame(2, $companyStats->totalActiveEmployees());
         $this->assertSame(1, $companyStats->totalInactiveEmployees());
@@ -56,6 +45,24 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
 
         $this->assertSame(0, $companyStats->totalActiveEmployees());
         $this->assertSame(0, $companyStats->totalInactiveEmployees());
+    }
+
+    private function getCompanyIdForStatsTest(): int
+    {
+        $company = $this->getDummyActiveCompany();
+
+        $employee1 = $this->getDummyActiveEmployee($company, 1);
+        $employee2 = $this->getDummyActiveEmployee($company, 2);
+        $employee3 = $this->getDummyInactiveEmployee($company, 3);
+
+        $this->entityManager->persist($company);
+        $this->entityManager->persist($employee1);
+        $this->entityManager->persist($employee2);
+        $this->entityManager->persist($employee3);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
+
+        return $company->getId();
     }
 
     private function getDummyActiveCompany(): Company
