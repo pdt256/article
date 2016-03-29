@@ -27,10 +27,9 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
     {
         $company = $this->getDummyActiveCompany();
 
-        $employee1 = $this->getDummyActiveEmployee(1, $company);
-        $employee2 = $this->getDummyActiveEmployee(2, $company);
-        $employee3 = $this->getDummyActiveEmployee(3, $company);
-        $employee3->setIsActive(false);
+        $employee1 = $this->getDummyActiveEmployee($company, 1);
+        $employee2 = $this->getDummyActiveEmployee($company, 2);
+        $employee3 = $this->getDummyInactiveEmployee($company, 3);
 
         $this->entityManager->persist($company);
         $this->entityManager->persist($employee1);
@@ -68,15 +67,26 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
         return $company;
     }
 
-    private function getDummyActiveEmployee(int $num = 1, Company $company = null): Employee
+    private function getDummyActiveEmployee(Company $company, int $num = 1): Employee
     {
-        if ($company === null) {
-            $company = $this->getDummyActiveCompany();
-        }
+        $employee = $this->getDummyEmployee($company, $num);
+        $employee->setIsActive(true);
 
+        return $employee;
+    }
+
+    private function getDummyInactiveEmployee(Company $company, int $num = 1): Employee
+    {
+        $employee = $this->getDummyEmployee($company, $num);
+        $employee->setIsActive(false);
+
+        return $employee;
+    }
+
+    private function getDummyEmployee(Company $company, int $num = 1): Employee
+    {
         $employee = new Employee;
         $employee->setName('John Doe ' . $num);
-        $employee->setIsActive(true);
         $employee->setCompany($company);
 
         return $employee;
