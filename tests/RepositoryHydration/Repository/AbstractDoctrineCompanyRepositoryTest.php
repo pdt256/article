@@ -23,17 +23,15 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
 
     abstract protected function getCompanyRepository(): CompanyRepositoryInterface;
 
-    public function testGetCompanyStats()
+    public function testGetCompanyStatsWithNoCompanyAndNoEmployees()
     {
-        $companyId = $this->getCompanyIdForStatsTest();
+        $companyStats = $this->companyRepository->getCompanyStats(1);
 
-        $companyStats = $this->companyRepository->getCompanyStats($companyId);
-
-        $this->assertSame(2, $companyStats->totalActiveEmployees());
-        $this->assertSame(1, $companyStats->totalInactiveEmployees());
+        $this->assertSame(0, $companyStats->totalActiveEmployees());
+        $this->assertSame(0, $companyStats->totalInactiveEmployees());
     }
 
-    public function testGetCompanyStatsNoEmployees()
+    public function testGetCompanyStatsWithNoEmployees()
     {
         $company = $this->getDummyActiveCompany();
 
@@ -45,6 +43,16 @@ abstract class AbstractDoctrineCompanyRepositoryTest extends RepositoryTestCase
 
         $this->assertSame(0, $companyStats->totalActiveEmployees());
         $this->assertSame(0, $companyStats->totalInactiveEmployees());
+    }
+
+    public function testGetCompanyStats()
+    {
+        $companyId = $this->getCompanyIdForStatsTest();
+
+        $companyStats = $this->companyRepository->getCompanyStats($companyId);
+
+        $this->assertSame(2, $companyStats->totalActiveEmployees());
+        $this->assertSame(1, $companyStats->totalInactiveEmployees());
     }
 
     private function getCompanyIdForStatsTest(): int
