@@ -16,6 +16,9 @@
         <testsuite name="RepositoryHydration">
             <directory suffix=".php">./tests/RepositoryHydration</directory>
         </testsuite>
+        <testsuite name="ReusableCode">
+            <directory suffix=".php">./tests/ReusableCode</directory>
+        </testsuite>
     </testsuites>
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="false">
