@@ -1,10 +1,6 @@
 Reusable Code
 =============
 
-## Introduction
-
-Article Examples in PHP.
-
 ## Run Built-in Web Server
 
 ```
