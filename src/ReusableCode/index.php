@@ -9,7 +9,8 @@ require_once $basePath . '/vendor/autoload.php';
 $firstName = 'John';
 $lastName = 'Doe';
 $password1 = 'V3ryS3cureP4sswOrd!';
-$password2 = 'johndoepassword!';
+$password2 = 'johndoepassword';
+$password3 = 'short';
 
 $user = new User($firstName, $lastName);
 $userPasswordValidator = new UserPasswordValidator(
@@ -19,5 +20,6 @@ $userPasswordValidator = new UserPasswordValidator(
 
 $isPassword1Valid = $userPasswordValidator->isValid($password1);
 $isPassword2Valid = $userPasswordValidator->isValid($password2);
+$isPassword3Valid = $userPasswordValidator->isValid($password3);
 
 include_once 'View/index.php';
