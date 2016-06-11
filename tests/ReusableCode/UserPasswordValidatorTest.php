@@ -12,6 +12,7 @@ class UserPasswordValidatorTest extends \PHPUnit_Framework_TestCase
             $user
         );
 
+        $this->assertTrue($userPasswordValidator->isValid('^YUZ#*wFPys?k8eN'));
         $this->assertFalse($userPasswordValidator->isValid('---john---'));
         $this->assertFalse($userPasswordValidator->isValid('---doe----'));
     }
