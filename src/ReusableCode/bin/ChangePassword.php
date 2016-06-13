@@ -9,8 +9,8 @@ $newPassword = $argv[1];
 $user = new User('John', 'Doe');
 $userPasswordValidator = new UserPasswordValidator($user);
 
-if ($userPasswordValidator->isValid($newPassword)) {
-    echo 'Valid!' . PHP_EOL;
-} else {
-    echo '### INVALID! ###' . PHP_EOL;
+if (! $userPasswordValidator->isValid($newPassword)) {
+    die('### INVALID! ###' . PHP_EOL);
 }
+
+echo 'Valid!' . PHP_EOL;
