@@ -1,24 +1,25 @@
 <?php
 namespace pdt256\article\ReusableCode;
 
-class UserPasswordValidator implements PasswordValidatorInterface
+class UserPasswordValidator
 {
-    /** @var PasswordValidatorInterface */
-    private $passwordValidator;
-
     /** @var User */
     private $user;
 
-    public function __construct(PasswordValidatorInterface $passwordValidator, User $user)
+    public function __construct(User $user)
     {
-        $this->passwordValidator = $passwordValidator;
         $this->user = $user;
     }
 
     public function isValid(string $password) : bool
     {
-        return $this->passwordValidator->isValid($password)
+        return $this->isPasswordLengthValid($password)
             && $this->passwordDoesNotContainUserDetails($password);
+    }
+
+    private function isPasswordLengthValid(string $password) : bool
+    {
+        return strlen($password) >= 8;
     }
 
     private function passwordDoesNotContainUserDetails(string $password) : bool
