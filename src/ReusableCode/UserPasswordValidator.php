@@ -3,29 +3,30 @@ namespace pdt256\article\ReusableCode;
 
 class UserPasswordValidator
 {
-    /** @var User */
-    private $user;
-
-    public function __construct(User $user)
+    public function assertPasswordValid(User $user, string $password)
     {
-        $this->user = $user;
+        $this->assertPasswordLengthValid($password);
+        $this->assertPasswordDoesNotContainUserDetails($user, $password);
     }
 
-    public function isValid(string $password) : bool
+    private function assertPasswordLengthValid(string $password)
     {
-        return $this->isPasswordLengthValid($password)
-            && $this->passwordDoesNotContainUserDetails($password);
+        if (strlen($password) < 8) {
+            throw UserPasswordValidationException::tooShort();
+        }
     }
 
-    private function isPasswordLengthValid(string $password) : bool
+    private function assertPasswordDoesNotContainUserDetails(User $user, string $password)
     {
-        return strlen($password) >= 8;
+        if ($this->passwordContainsUserDetails($user, $password)) {
+            throw UserPasswordValidationException::containsUserDetails();
+        }
     }
 
-    private function passwordDoesNotContainUserDetails(string $password) : bool
+    private function passwordContainsUserDetails(User $user, string $password): bool
     {
-        return ! $this->passwordContainsNeedle($password, $this->user->getFirstName())
-            && ! $this->passwordContainsNeedle($password, $this->user->getLastName());
+        return $this->passwordContainsNeedle($password, $user->getFirstName())
+            || $this->passwordContainsNeedle($password, $user->getLastName());
     }
 
     private function passwordContainsNeedle(string $password, string $needle) : bool
